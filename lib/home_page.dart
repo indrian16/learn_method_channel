@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
               child: FilledButton.tonal(
                 onPressed: () {
                   _updateBatteryLevel();
+                  _getSystemVersion();
                 },
                 child: Text('Update Info'),
               ),

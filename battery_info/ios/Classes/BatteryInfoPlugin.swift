@@ -12,6 +12,8 @@ public class BatteryInfoPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "getBatteryLevel":
         result(BatteryUtils.getBatteryLevel())
+    case "getSystemVersion":
+        result(BatteryUtils.getSystemVersion())
     default:
       result(FlutterMethodNotImplemented)
     }

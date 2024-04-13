@@ -8,4 +8,9 @@ class BatteryUtils {
             return Int(device.batteryLevel * 100)
         }
     }
+    
+    static func getSystemVersion() -> String {
+        let device = UIDevice.current
+        return "\(device.systemName) \(device.systemVersion)"
+    }
 }
