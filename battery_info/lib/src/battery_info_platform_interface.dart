@@ -24,6 +24,6 @@ abstract class BatteryInfoPlatform extends PlatformInterface {
   }
 
   Future<int?> getBatteryLevel() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+    throw UnimplementedError('getBatteryLevel() has not been implemented.');
   }
 }

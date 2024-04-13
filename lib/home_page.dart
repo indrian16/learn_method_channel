@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   void _updateBatteryLevel() {
     BatteryInfo.getBatteryLevel().then((value) {
+      print('DEV: ${value}');
       if (value != null) {
         setState(() {
           _batteryLevel = value;
