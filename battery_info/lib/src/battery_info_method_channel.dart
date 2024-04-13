@@ -19,4 +19,17 @@ class MethodChannelBatteryInfo extends BatteryInfoPlatform {
       return null;
     }
   }
+
+  @override
+  Future<String?> getSystemVersion() async {
+    try {
+      final versionName = await _channel.invokeMethod('getSystemVersion');
+      if (versionName != null && versionName is String) {
+        return versionName;
+      }
+      return null;
+    } catch(e) {
+      return null;
+    }
+  }
 }

@@ -10,19 +10,30 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _batteryLevel = 0;
+  String _systemVersion = 'UNKNOWN';
 
   @override
   void initState() {
     super.initState();
     _updateBatteryLevel();
+    _getSystemVersion();
   }
 
   void _updateBatteryLevel() {
     BatteryInfo.getBatteryLevel().then((value) {
-      print('DEV: ${value}');
       if (value != null) {
         setState(() {
           _batteryLevel = value;
+        });
+      }
+    });
+  }
+
+  void _getSystemVersion() {
+    BatteryInfo.getSystemVersion().then((value) {
+      if (value != null) {
+        setState(() {
+          _systemVersion = value;
         });
       }
     });
@@ -39,6 +50,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Battery Level: $_batteryLevel'),
+            Text('System Version: $_systemVersion'),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: FilledButton.tonal(

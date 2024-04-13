@@ -25,10 +25,10 @@ class BatteryInfoPlugin : FlutterPlugin, MethodCallHandler {
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
-        if (call.method == "getBatteryLevel") {
-            result.success(BatteryUtils.getBatteryLevel(context))
-        } else {
-            result.notImplemented()
+        when (call.method) {
+            "getBatteryLevel" -> result.success(BatteryUtils.getBatteryLevel(context))
+            "getSystemVersion" -> result.success(BatteryUtils.getSystemVersion())
+            else -> result.notImplemented()
         }
     }
 

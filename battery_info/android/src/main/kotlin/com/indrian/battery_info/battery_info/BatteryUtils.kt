@@ -20,4 +20,8 @@ object BatteryUtils {
             (levelExtra * 100) / scaleExtra
         }
     }
+
+    fun getSystemVersion(): String {
+        return "Android ${VERSION.RELEASE} ${VERSION.CODENAME}";
+    }
 }
